@@ -4,6 +4,7 @@ public class HomeWork2 {
     public static void main(String[] args) {
         System.out.println(firstTask(16,5));
         System.out.println(secondTask(-3));
+        System.out.println(thirdTask(-10));
     }
     public static boolean firstTask(int a, int b ){
         if (a+b >= 10 && a+b <= 20){
@@ -17,6 +18,13 @@ public class HomeWork2 {
             return "Число положительное!";
         }else {
             return "Число отрицательное!";
+        }
+    }
+    public static boolean thirdTask(int a){
+        if (a>= 0) {
+            return false;
+        }else {
+            return true;
         }
     }
 }
