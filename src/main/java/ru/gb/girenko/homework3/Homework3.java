@@ -14,6 +14,8 @@ public class Homework3 {
        System.out.println();
        System.out.println();
        fourthTask();
+       System.out.println();
+       System.out.print(Arrays.toString(fifthTask(5,25)));
 
     }
     public static void arrayZeroOne() {
@@ -59,5 +61,12 @@ public class Homework3 {
             }
             System.out.println();
         }
+    }
+    public static int[] fifthTask(int len, int initialValue){
+        int arr[] = new int[len];
+        for (int i=0;i< arr.length;i++){
+            arr[i]=initialValue;
+        }
+        return arr;
     }
 }
