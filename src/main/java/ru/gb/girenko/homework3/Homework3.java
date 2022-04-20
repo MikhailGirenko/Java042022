@@ -6,9 +6,14 @@ public class Homework3 {
     public static void main(String[] args) {
        arrayZeroOne();
        System.out.println();
+       System.out.println();
        array100();
        System.out.println();
+       System.out.println();
        sixArray();
+       System.out.println();
+       System.out.println();
+       fourthTask();
 
     }
     public static void arrayZeroOne() {
@@ -41,5 +46,18 @@ public class Homework3 {
            }
        }
         System.out.print(Arrays.toString(arr));
+    }
+    public static void fourthTask(){
+        int[][]x = new int[4][4];
+
+        for(int i = 0; i< x.length;i++){
+            for (int j=0, y= x.length-1; j< x[i].length; j++, y--){
+                if(i==j || i==y){
+                    x[i][j]=1;
+                }
+                System.out.print(x[i][j]+", ");
+            }
+            System.out.println();
+        }
     }
 }
