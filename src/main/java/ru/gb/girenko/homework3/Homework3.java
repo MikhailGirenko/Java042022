@@ -1,6 +1,7 @@
 package ru.gb.girenko.homework3;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class Homework3 {
     public static void main(String[] args) {
@@ -16,6 +17,9 @@ public class Homework3 {
        fourthTask();
        System.out.println();
        System.out.print(Arrays.toString(fifthTask(5,25)));
+       System.out.println();
+       System.out.println();
+       sixthTask();
 
     }
     public static void arrayZeroOne() {
@@ -68,5 +72,23 @@ public class Homework3 {
             arr[i]=initialValue;
         }
         return arr;
+    }
+    public static void sixthTask (){
+        int [] a = new int[10];
+        for(int i=0; i< a.length;i++){
+         a[i]=new Random().nextInt(100);
+        }
+        System.out.print(Arrays.toString(a));
+        System.out.println();
+        int max =0, min=0;
+        for(int i=0;i<a.length;i++){
+            if (a[i] > a[max]){
+                max=i;
+            }else if(a[i]<a[min]){
+                min=i;
+            }
+        }
+        System.out.println("Число максимальное = "+a[max]);
+        System.out.println("Число минимальное = "+a[min]);
     }
 }
