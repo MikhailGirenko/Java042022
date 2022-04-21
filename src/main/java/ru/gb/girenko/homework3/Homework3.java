@@ -20,7 +20,11 @@ public class Homework3 {
        System.out.println();
        System.out.println();
        sixthTask();
-
+       System.out.println();
+       int arr[]={1,2,3,3,2,1,5};
+       System.out.print(Arrays.toString(arr));
+       System.out.println();
+       System.out.println(seventhTask(arr));
     }
     public static void arrayZeroOne() {
         int [] nums = {0,0,0,1,0,1,0,1,0,1,0,1,1};
@@ -90,5 +94,16 @@ public class Homework3 {
         }
         System.out.println("Число максимальное = "+a[max]);
         System.out.println("Число минимальное = "+a[min]);
+    }
+    public static boolean seventhTask(int arr[]){
+        int left = 0, right = 0;
+        for (int i = 0; i< arr.length/2; i++){
+            left=left+arr[i];
+        }
+        for(int i = arr.length/2; i<arr.length; i++){
+            right=right+arr[i];
+        }
+        boolean reply = left == right;
+        return reply;
     }
 }
