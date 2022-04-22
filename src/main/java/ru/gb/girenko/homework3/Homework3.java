@@ -14,17 +14,18 @@ public class Homework3 {
        sixArray();
        System.out.println();
        System.out.println();
-       fourthTask();
+       diagonalsX();
        System.out.println();
-       System.out.print(Arrays.toString(fifthTask(5,25)));
+       System.out.print(Arrays.toString(lenIValue(5,25)));
        System.out.println();
        System.out.println();
-       sixthTask();
+       minMax();
        System.out.println();
-       int arr[]={1,2,3,3,2,1,5};
+       int[] arr ={1,2,3,5,4,8,7,1,9,6};
        System.out.print(Arrays.toString(arr));
+
        System.out.println();
-       System.out.println(seventhTask(arr));
+       System.out.println(equalParts(arr));
     }
     public static void arrayZeroOne() {
         int [] nums = {0,0,0,1,0,1,0,1,0,1,0,1,1};
@@ -57,7 +58,7 @@ public class Homework3 {
        }
         System.out.print(Arrays.toString(arr));
     }
-    public static void fourthTask(){
+    public static void diagonalsX(){
         int[][]x = new int[4][4];
 
         for(int i = 0; i< x.length;i++){
@@ -70,17 +71,17 @@ public class Homework3 {
             System.out.println();
         }
     }
-    public static int[] fifthTask(int len, int initialValue){
-        int arr[] = new int[len];
+    public static int[] lenIValue(int len, int initialValue){
+        int[] arr = new int[len];
         for (int i=0;i< arr.length;i++){
             arr[i]=initialValue;
         }
         return arr;
     }
-    public static void sixthTask (){
+    public static void minMax (){
         int [] a = new int[10];
         for(int i=0; i< a.length;i++){
-         a[i]=new Random().nextInt(100);
+            a[i]=new Random().nextInt(100);
         }
         System.out.print(Arrays.toString(a));
         System.out.println();
@@ -95,15 +96,18 @@ public class Homework3 {
         System.out.println("Число максимальное = "+a[max]);
         System.out.println("Число минимальное = "+a[min]);
     }
-    public static boolean seventhTask(int arr[]){
-        int left = 0, right = 0;
-        for (int i = 0; i< arr.length/2; i++){
+    public static boolean equalParts(int[] arr){
+        int left=0;
+        for (int i=0;i<arr.length;i++){
+            int right=0;
             left=left+arr[i];
+            for(int j=i+1;j< arr.length;j++){
+                right=right+arr[j];
+            }
+            if(left==right){
+                return true;
+            }
         }
-        for(int i = arr.length/2; i<arr.length; i++){
-            right=right+arr[i];
-        }
-        boolean reply = left == right;
-        return reply;
+        return false;
     }
 }
