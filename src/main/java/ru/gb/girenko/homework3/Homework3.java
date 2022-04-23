@@ -23,9 +23,13 @@ public class Homework3 {
        System.out.println();
        int[] arr ={1,2,3,5,4,8,7,1,9,6};
        System.out.print(Arrays.toString(arr));
-
        System.out.println();
        System.out.println(equalParts(arr));
+       System.out.println();
+       int[] arr2 ={1,2,3,5,4,8,7,1,9,6};
+       System.out.println(Arrays.toString(arr2));
+       cycleOffset(arr2,3);
+
     }
     public static void arrayZeroOne() {
         int [] nums = {0,0,0,1,0,1,0,1,0,1,0,1,1};
@@ -109,5 +113,31 @@ public class Homework3 {
             }
         }
         return false;
+    }
+    public static void cycleOffset(int[] arr2,int n){
+            if(n> arr2.length) {
+                n=Math.abs(n%arr2.length);
+            }else {
+            }
+            if(n>0){
+                for (int i = 0; i < n; i++) {
+                    int memory = arr2[0];
+                    arr2[0]=arr2[arr2.length-1];
+                    for (int j = 1; j < arr2.length-1 ; j++) {
+                        arr2[arr2.length-j]=arr2[arr2.length-j-1];
+                    }
+                    arr2[1]=memory;
+                }
+            }else if (n<0){
+                for (int i = 0; i < n; i--) {
+                    int memory = arr2[arr2.length-1];
+                    arr2[arr2.length-1]=arr2[0];
+                    for (int j = 1; j < arr2.length-1; j++) {
+                        arr2[j-1] = arr2[j];
+                    }
+                    arr2[arr2.length-2]=memory;
+                }
+            }
+        System.out.print(Arrays.toString(arr2));
     }
 }
