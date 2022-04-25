@@ -74,10 +74,32 @@ public class HomeWork4 {
             System.out.print("Введите координаты внутри игрового поля!!!");
         }
         if (board[line][row]!= MINE){
+            if (board [line][row]  == EMPTY){
+                for (int i = line-1; i <=line+1 ; i++) {
+                    for (int j =row-1; j <=row+1 ; j++) {
+                        if(i<0 || i>=HEIGHT || j<0 || j>=HEIGHT){
+                            continue;
+                        }
+                        if(board[i][j]==EMPTY) {
+                            moves[i][j] = CELL_OPEN;
+                            for (int k = i-1; k <=i+1 ; k++) {
+                                for (int l = j-1; l <= j+1; l++) {
+                                    if(l<0 || l>=HEIGHT || k<0 || k>=HEIGHT) {
+                                        continue;
+                                    }
+                                    if(board[k][l]!=MINE){
+                                        moves[k][l] = CELL_OPEN;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             moves[line][row] = CELL_OPEN;
             return true;
         }
-        return  false;
+            return false;
     }
 
     public static void printBoard(int[][] board, int[][] moves) {
@@ -165,4 +187,5 @@ public class HomeWork4 {
         }
         return board;
     }
+
 }
