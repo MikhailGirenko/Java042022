@@ -42,6 +42,8 @@ public class HomeWork4 {
            isPassMove = move(board, moves);
            win = isWin(moves);
        } while (isPassMove && !win);
+       openBoard(moves);
+       printBoard(board,moves);
        return isPassMove;
     }
 
@@ -186,6 +188,13 @@ public class HomeWork4 {
             }
         }
         return board;
+    }
+    public static void openBoard(int[][] moves){
+        for (int i = 0; i < HEIGHT; i++) {
+            for (int j = 0; j < WIDTH; j++) {
+                moves[i][j]= CELL_OPEN;
+            }
+        }
     }
 
 }
