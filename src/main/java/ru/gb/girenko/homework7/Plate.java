@@ -5,10 +5,15 @@ public class Plate {
     public Plate(int food){
         this.food=food;
     }
-    public void info(){
-        System.out.println("Plate: "+food);
-    }
+
     public void decreaseFood(int n){
         food-=n;
+    }
+    public void info(){
+        if(food<0){
+            System.out.println("Коту мало еды!!!!!");
+        }else {
+            System.out.println("Plate: " + food);
+        }
     }
 }
