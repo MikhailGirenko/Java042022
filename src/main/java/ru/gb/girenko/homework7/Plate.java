@@ -9,6 +9,9 @@ public class Plate {
     public void decreaseFood(int n){
         food-=n;
     }
+    public boolean satietyCat(boolean a){
+        return a = food > 0;
+    }
     public void info(){
         if(food<0){
             System.out.println("Коту мало еды!!!!!");
