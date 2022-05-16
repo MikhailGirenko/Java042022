@@ -9,14 +9,16 @@ public class Plate {
         if(food>=n){
            food-=n;
            Cat.setSatiety(true);
+        }else {
+            Cat.setSatiety(false);
         }
     }
     public void info(){
         if(!Cat.isSatiety()){
-            System.out.println("Коту мало еды!!!!!");
+            System.out.println("Мало еды!!!!!");
             System.out.println("В тарелке: " + food);
         }else {
-            System.out.println("Кот поел!!!, в тарелке осталось: "+food);
+            System.out.println("Поел!!!, в тарелке осталось: "+food);
         }
     }
 }

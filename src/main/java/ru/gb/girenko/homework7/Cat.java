@@ -11,6 +11,7 @@ public class Cat {
     }
     public void eat(Plate p){
         p.decreaseFood(appetite);
+        p.info();
     }
 
     public static boolean isSatiety() {
@@ -19,5 +20,9 @@ public class Cat {
 
     public static void setSatiety(boolean satiety) {
         Cat.satiety = satiety;
+    }
+
+    public String getName() {
+        return name;
     }
 }
