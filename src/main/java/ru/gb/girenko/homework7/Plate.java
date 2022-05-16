@@ -5,18 +5,18 @@ public class Plate {
     public Plate(int food){
         this.food=food;
     }
-
     public void decreaseFood(int n){
-        food-=n;
-    }
-    public boolean satietyCat(boolean a){
-        return a = food > 0;
+        if(food>=n){
+           food-=n;
+           Cat.setSatiety(true);
+        }
     }
     public void info(){
-        if(food<0){
+        if(!Cat.isSatiety()){
             System.out.println("Коту мало еды!!!!!");
+            System.out.println("В тарелке: " + food);
         }else {
-            System.out.println("Plate: " + food);
+            System.out.println("Кот поел!!!, в тарелке осталось: "+food);
         }
     }
 }
