@@ -5,6 +5,7 @@ import java.util.SortedMap;
 
 public class Plate {
     private int food;
+    public static final int PLUSFOOD=10;
     public Plate(int food){
         this.food=food;
     }
@@ -22,7 +23,7 @@ public class Plate {
         }
     }
     public void addingFood(){
-        food+=10;
+        food+=PLUSFOOD;
         System.out.println("Добавили еще еды");
 
     }
