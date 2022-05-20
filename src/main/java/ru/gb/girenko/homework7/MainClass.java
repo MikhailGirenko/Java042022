@@ -15,7 +15,6 @@ public class MainClass {
             }
             cat[i].eat(plate);
         }
-
     }
 }
 
