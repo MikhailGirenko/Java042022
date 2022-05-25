@@ -3,30 +3,20 @@ package ru.gb.girenko.homework7;
 public class Cat {
     private String name;
     private int appetite;
-    private static boolean satiety;
-    public Cat (String name, int appetite, boolean satiety){
+    private boolean satiety;
+    public Cat (String name, int appetite){
         this.name=name;
         this.appetite=appetite;
-        this.satiety=satiety;
     }
-    public void eat(Plate p){
-        p.decreaseFood(appetite);
-        p.info();
+    public void eat(Plate p) {
+        if (!satiety) {
+            satiety = p.decreaseFood(appetite);
+            System.out.println("Кот: " + name + " Поел!!!");
+        }
     }
-
-    public static boolean isSatiety() {
-        return satiety;
-    }
-
-    public static void setSatiety(boolean satiety) {
-        Cat.satiety = satiety;
-    }
-
-    public String getName() {
-        return name;
-    }
-
     public int getAppetite() {
         return appetite;
     }
 }
+
+

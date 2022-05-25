@@ -13,28 +13,28 @@ public class Plate {
         return food;
     }
 
-    public void decreaseFood(int n){
+    public boolean decreaseFood(int n){
         if(food>=n){
            food-=n;
-           Cat.setSatiety(true);
+           return true;
         }else {
-            Cat.setSatiety(false);
+            return false;
         }
     }
+
+    @Override
+    public String toString() {
+        return "В тарелке осталось: " + food + " еды.";
+    }
+
     public void addingFood(){
         Scanner in = new Scanner(System.in);
-        System.out.print("Дай еще еды: ");
+        System.out.print("Еще еды(max:200): ");
         int plusFood = in.nextInt();
-        food+=plusFood;
-
-    }
-    public void info(){
-        if(!Cat.isSatiety()){
-            System.out.println("Мало еды!!!!!");
-            System.out.println("В тарелке: " + food);
-        }else {
-            System.out.println("Поел!!!, в тарелке осталось: "+food);
+        if(plusFood>0 && plusFood<=200) {
+            food += plusFood;
+        }else{
+            System.out.println("Ошибка! Число не может быть отрицательным и больше 200.");
         }
     }
-
 }
