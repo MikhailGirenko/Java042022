@@ -1,7 +1,7 @@
 package ru.gb.girenko.level2.homework1;
 
 public class Barrier implements Hurdle {
-  private int height;
+  private final int height;
 
     public Barrier(int height) {
         this.height = height;
