@@ -1,15 +1,37 @@
 package ru.gb.girenko.level2.homework1;
+/*1. Создайте три класса Человек, Кот, Робот, которые не наследуются от одного класса. Эти
+        классы должны уметь бегать и прыгать (методы просто выводят информацию о действии в
+        консоль).
+        2. Создайте два класса: беговая дорожка и стена, при прохождении через которые, участники
+        должны выполнять соответствующие действия (бежать или прыгать), результат выполнения
+        печатаем в консоль (успешно пробежал, не смог пробежать и т.д.).
+        3. Создайте два массива: с участниками и препятствиями, и заставьте всех участников пройти
+        этот набор препятствий.
+        4. * У препятствий есть длина (для дорожки) или высота (для стены), а участников ограничения
+        на бег и прыжки. Если участник не смог пройти одно из препятствий, то дальше по списку он
+        препятствий не идет.*/
+
 
 public class App {
     public static void main(String[] args) {
-        Robot robot = new Robot("R2-D2");
-        Cat cat = new Cat("Vaska");
-        Human human = new Human("Ivan");
-        human.jump();
-        human.run();
-        cat.jump();
-        cat.run();
-        robot.run();
-        robot.jump();
+        Athletics[] athletics = {
+                new Robot("R2-D2",3000,1),
+                new Cat("Vaska", 1000,3),
+                new Human("Ivan",500,2)};
+        Hurdle[] hurdles ={
+                new RunningTrack(800),
+                new Barrier(2),
+                new Barrier(4),
+        };
+
+        for (Athletics athlete: athletics) {
+            System.out.println();
+            for (Hurdle hurdle: hurdles ) {
+                hurdle.cross(athlete);
+                if (!athlete.isStatus()) {
+                    break;
+                }
+            }
+        }
     }
 }
