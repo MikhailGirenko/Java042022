@@ -19,8 +19,10 @@ public class Calculator extends JFrame {
 
         JLabel display = new JLabel("0");
         display.setHorizontalAlignment(SwingConstants.RIGHT);
+
         display.setFont(new Font("Arial",Font.BOLD,18));
         add(display, BorderLayout.NORTH);
+
 
         ActionListener numberListener = new ActionListener() {
 
@@ -37,6 +39,9 @@ public class Calculator extends JFrame {
                 }
                 displayText += text;
                 display.setText(displayText);
+                if ("+/-".equals(text)){
+                    displayText= "-";
+                }
             }
         };
 
@@ -81,17 +86,25 @@ public class Calculator extends JFrame {
         numberPanel.setLayout(numberLayout);
 
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i < 10; i++) {
             JButton button = new JButton(String.valueOf(i));
             button.addActionListener(numberListener);
             numberPanel.add(button);
+            button.setBackground(Color.CYAN);
         }
 
         JButton pointButton = new JButton(".");
         pointButton.addActionListener(numberListener);
 
+        JButton zeroButton = new JButton("0");
+        zeroButton.addActionListener(numberListener);
+        zeroButton.setBackground(Color.CYAN);
+
         JButton negativeButton = new JButton("+/-");
+        negativeButton.setBackground(Color.magenta);
+        pointButton.setBackground(Color.magenta);
         numberPanel.add(pointButton);
+        numberPanel.add(zeroButton);
         numberPanel.add(negativeButton);
 
         JPanel buttonPanel = new JPanel();
@@ -101,6 +114,7 @@ public class Calculator extends JFrame {
         for(char c: "+-/*=C".toCharArray()){
             JButton button = new JButton(String.valueOf(c));
             button.addActionListener(buttonListener);
+            button.setBackground(Color.magenta);
             buttonPanel.add(button);
         }
 
