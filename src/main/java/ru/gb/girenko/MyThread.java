@@ -1,7 +1,7 @@
 package ru.gb.girenko;
 
 public class MyThread extends Thread{
-    private float [] arr;
+    private final float [] arr;
 
     public MyThread(float[] arr) {
         this.arr = arr;
