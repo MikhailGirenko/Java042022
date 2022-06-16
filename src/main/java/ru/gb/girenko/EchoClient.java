@@ -12,6 +12,7 @@ public class EchoClient {
     private DataOutputStream out;
 
     public static void main(String[] args) {
+
         new EchoClient().start();
     }
 
@@ -21,24 +22,30 @@ public class EchoClient {
             Scanner scanner = new Scanner(System.in);
             while (true){
                 sendMessage(scanner.nextLine());
+                if("/end".equalsIgnoreCase(sendMessage(scanner.nextLine()))){
+                    break;
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void sendMessage(String message) {
+    private String sendMessage(String message) {
         try {
             out.writeUTF(message);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return message;
     }
 
     private void openConnection() throws IOException {
         socket = new Socket("127.0.0.1",8189);
         in = new DataInputStream(socket.getInputStream());
         out=new DataOutputStream(socket.getOutputStream());
+        System.out.println("Подключено.");
         new Thread(() -> {
             try {
                 while (true){
